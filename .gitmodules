@@ -1,0 +1,3 @@
+[submodule "debately"]
+	path = debately
+	url = git://github.com/SnacksOnAPlane/debately.git
