@@ -1,3 +1,6 @@
+import os
+
+from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
 admin.autodiscover()
@@ -19,4 +22,16 @@ urlpatterns = patterns('',
     # Debately urls
     (r'^', include('debately-site.debately.urls')),
 )
+
+if settings.DEBUG:
+    debately_static_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), 'static')
+    urlpatterns += patterns('',    
+    # the following is for service static media in the development
+    # environ. Should not be used in production 
+    # see http://docs.djangoproject.com/en/dev/howto/static-files/
+    # for details
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': debately_static_path}),
+    )
 
