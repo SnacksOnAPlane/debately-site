@@ -1,4 +1,7 @@
-# Django settings for debately project.
+"""
+ Django settings for debately project.
+"""
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -42,6 +45,10 @@ MEDIA_ROOT = ''
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = ''
 
+# Authentication settings
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
+
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
@@ -65,10 +72,15 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'debately-site.urls'
 
+DEBATELY_SITE_TEMPLATE_DIR = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), 'site_templates')
+
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Put strings here, like "/home/html/django_templates" or 
+    # "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    DEBATELY_SITE_TEMPLATE_DIR,
 )
 
 INSTALLED_APPS = (
