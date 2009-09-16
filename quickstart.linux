@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+python manage.py syncdb
+python manage.py loaddata debately/fixtures/debately_data.json
+python manage.py runserver
