@@ -26,6 +26,8 @@ urlpatterns = patterns('',
 if settings.DEBUG:
     debately_static_path = os.path.join(
         os.path.dirname(os.path.abspath(__file__)), 'static')
+    debately_app_static_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), 'debately', 'static')
     urlpatterns += patterns('',    
     # the following is for service static media in the development
     # environ. Should not be used in production 
@@ -33,5 +35,7 @@ if settings.DEBUG:
     # for details
         (r'^static/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': debately_static_path}),
+        (r'^debately/static/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': debately_app_static_path}),
     )
 
