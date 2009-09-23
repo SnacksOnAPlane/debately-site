@@ -18,15 +18,18 @@ h2 {
 }
 
 #header {
-	height: 100px;
+	height: 40px;
 	background-color: #e0ebff;
+    width: 780px;
 	padding: 5px;
-	border-bottom: 1px solid #666;
+	border: 1px solid #666;
+    border-top: 0px;
 	margin-bottom: 20px;
+    margin: auto;
 }
 
 #content {
-    width: 980px;
+    width: 780px;
     margin: auto;
 }
 
